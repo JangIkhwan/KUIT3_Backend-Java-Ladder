@@ -8,8 +8,8 @@ public class LadderGameFactory {
         return new LadderGame(new RandomLadderCreator(ladderCreator));
     }
 
-    public static LadderGame createBasicLadderGame(int numberOfRow, int numberOfPerson){
-        BasicLadderCreator ladderCreator = new BasicLadderCreator(NaturalNumber.of(numberOfRow), NaturalNumber.of(numberOfPerson));
+    public static LadderGame createBasicLadderGame(NaturalNumber numberOfRow, NaturalNumber numberOfPerson){
+        BasicLadderCreator ladderCreator = new BasicLadderCreator(numberOfRow, numberOfPerson);
         return new LadderGame(ladderCreator);
     }
 }
