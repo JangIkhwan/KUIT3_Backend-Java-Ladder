@@ -17,12 +17,9 @@ public class RandomLadderCreator implements LadderCreator {
     public void drawLine(Position r, Position c) {
         int numberOfRow = ladderCreator.getNumberOfRow();
         int numberOfPerson = ladderCreator.getNumberOfPerson();
-        int lineNumber = (int)(numberOfRow * numberOfRow * 0.3);
+        int lineNumber = getLineNumber(numberOfRow);
         Random random = new Random();
-        HashSet<Integer> set[] = new HashSet[numberOfRow];
-        for(int i = 0; i < numberOfRow; i++){
-            set[i] = new HashSet<>();
-        }
+        HashSet<Integer>[] set = getHashSets(numberOfRow);
         for(int i = 0; i < lineNumber; i++){
             int row = random.nextInt(numberOfRow);
             int col = random.nextInt(numberOfPerson);
@@ -38,6 +35,18 @@ public class RandomLadderCreator implements LadderCreator {
                 i--;
             }
         }
+    }
+
+    private static HashSet<Integer>[] getHashSets(int numberOfRow) {
+        HashSet<Integer> set[] = new HashSet[numberOfRow];
+        for(int i = 0; i < numberOfRow; i++){
+            set[i] = new HashSet<>();
+        }
+        return set;
+    }
+
+    private static int getLineNumber(int numberOfRow) {
+        return (int) (numberOfRow * numberOfRow * 0.3);
     }
 
     @Override
