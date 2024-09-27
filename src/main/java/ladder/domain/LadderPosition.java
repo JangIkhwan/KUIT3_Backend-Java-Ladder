@@ -20,4 +20,13 @@ public class LadderPosition {
     public boolean xIsSameAs(int position){
         return this.x.getPosition() == position;
     }
+
+    public Position getX() {
+        return x;
+    }
+
+    public Position getY() {
+        return y;
+    }
+
 }

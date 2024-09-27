@@ -11,10 +11,10 @@ public class RandomLadderCreator implements LadderCreator {
 
     public RandomLadderCreator(BasicLadderCreator ladderCreator) {
         this.ladderCreator = ladderCreator;
+        drawLine(null, null);
     }
 
-    @Override
-    public void drawLine(Position r, Position c) {
+    public void createRandomLadder(){
         int numberOfRow = ladderCreator.getNumberOfRow();
         int numberOfPerson = ladderCreator.getNumberOfPerson();
         int lineNumber = getLineNumber(numberOfRow);
@@ -28,13 +28,18 @@ public class RandomLadderCreator implements LadderCreator {
                 continue;
             }
             try{
-                ladderCreator.drawLine(Position.of(row), Position.of(col));
+                drawLine(Position.of(row), Position.of(col));
                 set[row].add(col);
             }
             catch(IllegalArgumentException e){
                 i--;
             }
         }
+    }
+
+    @Override
+    public void drawLine(Position row, Position col) {
+        ladderCreator.drawLine(row, col);
     }
 
     private static HashSet<Integer>[] getHashSets(int numberOfRow) {
