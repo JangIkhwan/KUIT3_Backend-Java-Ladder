@@ -56,27 +56,14 @@ public class Row {
 
     public void appendRowString(StringBuilder sb) {
         for(int i = 0; i < nodes.length; i++){
-            printNode(sb, i);
+            nodes[i].printNode(sb, i);
         }
         sb.append("\n");
     }
 
-    private void printNode(StringBuilder sb, int i) {
-        Direction direction = nodes[i].getDirection();
-        if(direction == Direction.NONE){
-            sb.append(" 0");
-        }
-        else if(direction == Direction.LEFT){
-            sb.append(" -1");
-        }
-        else if(direction == Direction.RIGHT){
-            sb.append(" 1");
-        }
-    }
-
     public void appendStarRowString(StringBuilder sb, LadderPosition starPosition) {
         for(int i = 0; i < nodes.length; i++){
-            printNode(sb, i);
+            nodes[i].printNode(sb, i);
             if(starPosition.xIsSameAs(i)){
                 sb.append("*");
             }

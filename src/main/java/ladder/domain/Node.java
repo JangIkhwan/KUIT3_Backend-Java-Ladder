@@ -32,4 +32,16 @@ public class Node {
     public Direction getDirection() {
         return direction;
     }
+
+    public void printNode(StringBuilder sb, int i) {
+        if(direction == Direction.NONE){
+            sb.append(" 0");
+        }
+        else if(direction == Direction.LEFT){
+            sb.append(" -1");
+        }
+        else if(direction == Direction.RIGHT){
+            sb.append(" 1");
+        }
+    }
 }
