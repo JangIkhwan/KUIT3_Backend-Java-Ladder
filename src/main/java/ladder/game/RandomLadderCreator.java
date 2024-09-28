@@ -11,7 +11,6 @@ public class RandomLadderCreator implements LadderCreator {
 
     public RandomLadderCreator(BasicLadderCreator ladderCreator) {
         this.ladderCreator = ladderCreator;
-        drawLine(null, null);
     }
 
     public void createRandomLadder(){
@@ -19,17 +18,21 @@ public class RandomLadderCreator implements LadderCreator {
         int numberOfPerson = ladderCreator.getNumberOfPerson();
         int lineNumber = getLineNumber(numberOfRow);
         Random random = new Random();
-        HashSet<Integer>[] set = getHashSets(numberOfRow);
+//        HashSet<Integer>[] set = getHashSets(numberOfRow); //
+        HashSet<String> set = new HashSet<>();
         for(int i = 0; i < lineNumber; i++){
             int row = random.nextInt(numberOfRow);
             int col = random.nextInt(numberOfPerson);
-            if(set[row].contains(col)){
+            String number = "(" + row + "," + col + ")";
+//            if(set[row].contains(col)){ // 객체의 주소가 같은지 비교
+            if(set.contains(number)){
                 i--;
                 continue;
             }
             try{
                 drawLine(Position.of(row), Position.of(col));
-                set[row].add(col);
+//                set[row].add(col);
+                set.add(number);
             }
             catch(IllegalArgumentException e){
                 i--;

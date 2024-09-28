@@ -25,7 +25,7 @@ class LadderCreatorTest {
     }
 
     @Test
-    void 랜던_사다리_게임_생성_테스트(){
+    void 랜덤_사다리_게임_생성_테스트(){
         // given
         NaturalNumber row = NaturalNumber.of(5);
         NaturalNumber person = NaturalNumber.of(5);
